@@ -48,6 +48,11 @@ func (r *RedisStorage) Provision(ctx caddy.Context) error {
 	r.logger = ctx.Logger()
 	r.locks = make(map[string]string)
 
+	// Resolve Caddy placeholders (e.g. {env.REDIS_URL})
+	repl := caddy.NewReplacer()
+	r.URL = repl.ReplaceAll(r.URL, "")
+	r.Prefix = repl.ReplaceAll(r.Prefix, "")
+
 	// Defaults
 	if r.Prefix == "" {
 		r.Prefix = "caddy"
