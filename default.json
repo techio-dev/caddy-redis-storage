@@ -1,0 +1,12 @@
+{
+	"admin": {
+		"listen": "0.0.0.0:2019",
+		"config": {
+			"load": {
+				"module": "http",
+				"url": "{env.CONFIG_URL}"
+			},
+			"load_delay": "5s"
+		}
+	}
+}
