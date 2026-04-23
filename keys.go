@@ -31,7 +31,7 @@ func directoryKey(prefix, key string) string {
 
 // lockKey returns the Redis key for a distributed lock.
 func lockKey(prefix, name string) string {
-	return prefix + ":" + toColonPath(name) + ":lock"
+	return prefix + ":locks:" + toColonPath(name)
 }
 
 // splitPath returns parent directory and basename from a storage key.
