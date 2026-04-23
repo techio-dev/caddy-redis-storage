@@ -54,7 +54,7 @@ func TestDirectoryKeyRoot(t *testing.T) {
 
 func TestLockKey(t *testing.T) {
 	got := lockKey("caddy", "certname")
-	want := "caddy:certname:lock"
+	want := "caddy:locks:certname"
 	if got != want {
 		t.Errorf("lockKey() = %q, want %q", got, want)
 	}
